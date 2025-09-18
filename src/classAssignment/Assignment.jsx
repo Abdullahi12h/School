@@ -8,7 +8,7 @@ function Assignment() {
 
   // Read assignments
   const handleReadData = () => {
-    axios.post("http://localhost:6200/read/Assignment").then((res) => {
+    axios.post("https://backendschool1.onrender.com/read/Assignment").then((res) => {
       setData(res.data);
     });
   };
@@ -19,7 +19,7 @@ function Assignment() {
 
   // Delete single assignment
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:6200/delete/Assignment/${id}`).then(() => {
+    axios.delete(`https://backendschool1.onrender.com/delete/Assignment/${id}`).then(() => {
       alert("Success delete");
       handleReadData();
     });
@@ -81,7 +81,7 @@ function Assignment() {
                 <td className="py-3 px-4">{index + 1}</td>
                 <td className="py-3 px-4">
                   <img
-                    src={`http://localhost:6200/allImages/${items.prImage}`}
+                    src={`https://backendschool1.onrender.com/allImages/${items.prImage}`}
                     alt="assignment"
                     className="w-12 h-12 object-cover rounded-md"
                   />

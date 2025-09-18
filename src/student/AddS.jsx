@@ -14,7 +14,7 @@ function Adds() {
   const handlePost = (e) => {
     e.preventDefault()
     axios
-      .post("http://localhost:6200/create/student", {
+      .post("https://backendschool1.onrender.com/create/student", {
         Name,
         GuardianName,
         Gender,

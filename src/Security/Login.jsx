@@ -13,7 +13,7 @@ function Login() {
 
   function handleInsert(e) {
     e.preventDefault();
-axios.post("http://localhost:6200/login/admin",{
+axios.post("https://backendschool1.onrender.com/login/admin",{
   email,
   password
 })

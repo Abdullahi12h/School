@@ -10,7 +10,7 @@ function Attendance() {
 
   // Fetch all students
   useEffect(() => {
-    axios.get("http://localhost:6200/read/student")
+    axios.get("https://backendschool1.onrender.com/read/student")
       .then(res => setStudents(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -31,20 +31,20 @@ function Attendance() {
   const handleSubmit = () => {
     const today = new Date().toISOString().split("T")[0];
     if (date < today) {
-      alert("You cannot mark attendance for past dates ");
+      alert("You cannot mark attendance for past dates ❌");
       return;
     }
 
     const requests = filteredStudents.map(student => {
       const status = attendance[student._id] ? "Present" : "Absent";
-      return axios.post("http://localhost:6200/attendance", {
+      return axios.post("https://backendschool1.onrender.com/attendance", {
         studentId: student._id,
         date,
         status
       }).catch(() => null);
     });
 
-    Promise.all(requests).then(() => alert("Attendance saved "));
+    Promise.all(requests).then(() => alert("Attendance saved ✅"));
   };
 
   return (
@@ -63,13 +63,11 @@ function Attendance() {
             className="px-4 py-2 border rounded-lg"
           >
             <option value="">Select Class</option>
-           
-            <option value="">Select Exam Class</option>
-            <option value="Computer Application">Class one</option>
-            <option value="Graphic Design">Class Two</option>
-            <option value="Video Editing">class three</option>
-            <option value="Graphic Motion">class four</option>
-            <option value="Options">Options</option>
+            <option value="Class One">Graphic Design</option>
+            <option value="Class Two">Computer Application</option>
+            <option value="Class Three">Video Editing</option>
+            <option value="Class Four">Motion Graphics</option>
+            <option value="Class Five">Web Development</option>
           </select>
 
           <input
@@ -110,7 +108,7 @@ function Attendance() {
               {filterClass && filteredStudents.length === 0 && (
                 <tr>
                   <td colSpan="3" className="py-6 text-gray-500">
-                    No students in this class 
+                    No students in this class ❌
                   </td>
                 </tr>
               )}

@@ -15,7 +15,7 @@ function RegisterStudent() {
 
     const handleInsert = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:6200/create/admin", { name,
+        axios.post("https://backendschool1.onrender.com/create/admin", { name,
     email,
     phone,
     password}).then((res) => {

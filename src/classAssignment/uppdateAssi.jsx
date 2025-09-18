@@ -24,7 +24,7 @@ export default function UpdateAssignment() {
   useEffect(() => {
     if (!id) return;
     axios
-      .get(`http://localhost:6200/readSingle/Assignment/${id}`)
+      .get(`https://backendschool1.onrender.com/readSingle/Assignment/${id}`)
       .then((res) => {
         const data = res.data[0] || {};
         setForm({
@@ -56,7 +56,7 @@ export default function UpdateAssignment() {
 
     try {
       setLoading(true);
-      await axios.put(`http://localhost:6200/update/Assignment/${id}`, formData, {
+      await axios.put(`https://backendschool1.onrender.com/update/Assignment/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

@@ -10,7 +10,7 @@ function DisplayS() {
 
   const handlePost = () => {
     axios
-      .get("http://localhost:6200/read/student")
+      .get("https://backendschool1.onrender.com/read/student")
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   };
@@ -21,7 +21,7 @@ function DisplayS() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:6200/delete/student/${id}`)
+      .delete(`https://backendschool1.onrender.com/delete/student/${id}`)
       .then(() => {
         alert("Successfully deleted");
         handlePost();
