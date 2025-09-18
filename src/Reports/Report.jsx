@@ -19,10 +19,10 @@ function Reports() {
     setError("");
     try {
       const [sRes, tRes, bRes, fRes] = await Promise.all([
-        axios.get("http://localhost:6200/read/student"),
-        axios.get("http://localhost:6200/read/Teacher"),
-        axios.get("http://localhost:6200/read/books"),
-        axios.get("http://localhost:6200/fee/read"),
+        axios.get("https://backendschool1.onrender.com/read/student"),
+        axios.get("https://backendschool1.onrender.com/read/Teacher"),
+        axios.get("https://backendschool1.onrender.com/read/books"),
+        axios.get("https://backendschool1.onrender.com/fee/read"),
       ]);
 
       setStudents(sRes.data || []);
